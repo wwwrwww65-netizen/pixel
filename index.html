@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بكسل - Pixel | لتطوير البرمجيات</title>
+    <meta name="description" content="شركة بكسل (Pixel) الرائدة في تطوير البرمجيات، مواقع الويب، تطبيقات الهواتف، وبرمجة الألعاب.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Background Animation -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Floating Transparent Shapes -->
+    <div class="shapes-container">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+        <div class="shape shape-5"></div>
+        <div class="shape shape-6"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.jpg" alt="Pixel Logo" class="logo-img">
+                <span class="logo-text">بكسل <span class="highlight">Pixel</span></span>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#portfolio">أعمالنا</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#" class="btn-primary contact-toggle">تواصل معنا</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section-padding">
+        <div class="container hero-container">
+            <div class="hero-text" data-scroll>
+                <h1 class="glitch" data-text="نحن نصنع المستقبل الرقمي">نحن نصنع المستقبل الرقمي</h1>
+                <p class="subtitle">شركة بكسل للبرمجيات.. حيث يلتقي الإبداع مع أحدث التقنيات البرمجية لنقدم لك حلولاً تتجاوز توقعاتك.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-glow">استكشف خدماتنا <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual" data-scroll>
+                <div class="hero-3d-scene">
+                    <div class="cube-wrapper">
+                        <div class="cube">
+                            <div class="cube-face front"><i class="fas fa-code"></i></div>
+                            <div class="cube-face back"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="cube-face right"><i class="fas fa-gamepad"></i></div>
+                            <div class="cube-face left"><i class="fas fa-desktop"></i></div>
+                            <div class="cube-face top"><i class="fas fa-cloud"></i></div>
+                            <div class="cube-face bottom"><i class="fas fa-robot"></i></div>
+                        </div>
+                    </div>
+                    <!-- Orbiting rings -->
+                    <div class="orbit orbit-1"><div class="sphere sphere-1"></div></div>
+                    <div class="orbit orbit-2"><div class="sphere sphere-2"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="section-title" data-scroll>
+                <h2>قوتنا في <span class="highlight">البرمجة</span></h2>
+                <p>نقوم ببرمجة وتطوير كل ما تحتاجه للارتقاء بأعمالك إلى القمة</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-card" data-scroll>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>تطوير المواقع</h3>
+                    <p>تصميم وتطوير مواقع ويب حديثة، متجاوبة، وسريعة الأداء تناسب جميع الشاشات.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card glass-card" data-scroll>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تطبيقات الهواتف</h3>
+                    <p>تطبيقات ذكية لأنظمة أندرويد و iOS بتجربة مستخدم لا مثيل لها.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card glass-card" data-scroll>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>أنظمة وبرامج سطح المكتب</h3>
+                    <p>أنظمة معقدة وبرامج قوية للشركات والمؤسسات تضمن الكفاءة والأمان.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card glass-card" data-scroll>
+                    <div class="icon-wrapper">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>برمجة الألعاب</h3>
+                    <p>تطوير ألعاب ممتعة ومبتكرة برسومات رائعة وأداء استثنائي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section-padding">
+        <div class="container">
+            <div class="section-title" data-scroll>
+                <h2>بعض من <span class="highlight">أعمالنا</span></h2>
+                <p>نفخر بتقديم حلول برمجية متكاملة لعملائنا في مختلف المجالات</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card glass-card" data-scroll>
+                    <div class="portfolio-img-wrapper">
+                        <img src="جي jeeey.jpg" alt="منصة جي" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>منصة جي - Jeeey</h3>
+                        <p>منصة تجارة إلكترونية متكاملة توفر تجربة تسوق رقمية استثنائية، مصممة بأحدث التقنيات لدعم نمو المتاجر وزيادة المبيعات.</p>
+                        <a href="https://jeeey.com" target="_blank" class="portfolio-link">زيارة المنصة <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="portfolio-card glass-card" data-scroll>
+                    <div class="portfolio-img-wrapper">
+                        <img src="نظام مستر كاشير للمطاعم.jpg" alt="مستر كاشير" class="portfolio-img contain-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>نظام مستر كاشير</h3>
+                        <p>نظام نقاط بيع (POS) ذكي يتضمن برنامجاً محاسبياً متكاملاً، مصمم لتسهيل إدارة المطاعم، المبيعات، والتقارير المالية بدقة واحترافية.</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="portfolio-card glass-card" data-scroll>
+                    <div class="portfolio-img-wrapper">
+                        <img src="Nora نورا.jpg" alt="نظام نورا" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>المعلمة نورا (Nora 3D)</h3>
+                        <p>تطبيق تعليمي مبتكر للهواتف الذكية يضم شخصية ثلاثية الأبعاد تتفاعل مع الأطفال لتعليمهم بأسلوب ترفيهي حديث.</p>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="portfolio-card glass-card" data-scroll>
+                    <div class="portfolio-img-wrapper">
+                        <img src="تطبيق مستر شير.jpg" alt="تطبيق مستر شير" class="portfolio-img">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>تطبيق مستر شير</h3>
+                        <p>تطبيق فائق السرعة لمشاركة ونقل الملفات، التطبيقات، والألعاب بين الهواتف الذكية بسلاسة وأمان تام.</p>
+                        <a href="https://play.google.com/store/apps/details?id=com.mistershare.filetransfer" target="_blank" class="portfolio-link">التحميل من Google Play <i class="fab fa-google-play"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding relative">
+        <div class="container about-container">
+            <div class="about-content" data-scroll>
+                <h2>لماذا تختار <span class="highlight">بكسل</span>؟</h2>
+                <p>نحن نقوم بإنشاء وبرمجة كل شيء تحتاجه! من المواقع الإلكترونية والأنظمة المعقدة إلى تطبيقات الهواتف الذكية. نقدم لك حلولاً تقنية متكاملة بأسعار تنافسية جداً وفي وقت قياسي.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-rocket"></i> سرعة وأداء استثنائي وتصاميم حديثة</li>
+                    <li><i class="fas fa-clock"></i> دقة والتزام تام في مواعيد التسليم</li>
+                    <li><i class="fas fa-shield-alt"></i> ضمان شامل وموثوقية عالية</li>
+                    <li><i class="fas fa-tags"></i> أسعار مناسبة ومدروسة لجميع المشاريع</li>
+                </ul>
+            </div>
+            <div class="about-image" data-scroll>
+                <div class="hologram-effect">
+                    <img src="logo.jpg" alt="Pixel Logo Tech" class="floating-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="contact" class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3>بكسل <span class="highlight">Pixel</span></h3>
+                <p>شريكك التقني للنجاح.</p>
+                <div class="footer-contact-details">
+                    <p><i class="fas fa-map-marker-alt"></i> اليمن، صنعاء - شملان (خلف مصنع شملان)</p>
+                    <p><i class="fas fa-map-marker-alt"></i> صنعاء - هائل (شارع 16)</p>
+                    <p><i class="fas fa-phone-alt"></i> الهاتف: <span dir="ltr">01-206586</span></p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/18t9kMP5bc/" target="_blank" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ymen_pixel?igsh=MXBuYmphNWVyOW5ydg==" target="_blank" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/96701206586" target="_blank" class="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 شركة بكسل للبرمجيات. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div class="contact-modal" id="contactModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-card">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>تواصل <span class="highlight">معنا</span></h2>
+                <p>نحن هنا لتحويل أفكارك إلى واقع رقمي مبهر.</p>
+            </div>
+            <div class="modal-body">
+                <a href="https://wa.me/96701206586" target="_blank" class="contact-option whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>مراسلتنا عبر واتساب</span>
+                </a>
+                <a href="https://www.facebook.com/share/18t9kMP5bc/" target="_blank" class="contact-option facebook-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>صفحتنا على فيسبوك</span>
+                </a>
+                <a href="https://www.instagram.com/ymen_pixel?igsh=MXBuYmphNWVyOW5ydg==" target="_blank" class="contact-option instagram-btn">
+                    <i class="fab fa-instagram"></i>
+                    <span>حسابنا على إنستقرام</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
