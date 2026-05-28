@@ -199,4 +199,41 @@ document.addEventListener('DOMContentLoaded', () => {
             contactModal.classList.remove('active');
         });
     }
+
+    // 9. Touch Ripple Effect for Mobile
+    const touchTargets = document.querySelectorAll('.service-card, .portfolio-card, .btn-glow, .btn-primary, .contact-option, .nav-links a');
+
+    touchTargets.forEach(el => {
+        const currentPos = window.getComputedStyle(el).position;
+        if (currentPos === 'static') el.style.position = 'relative';
+        el.style.overflow = 'hidden';
+
+        el.addEventListener('touchstart', (e) => {
+            const touch = e.touches[0];
+            const rect = el.getBoundingClientRect();
+
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple-effect');
+            ripple.style.left = (touch.clientX - rect.left - 30) + 'px';
+            ripple.style.top  = (touch.clientY - rect.top  - 30) + 'px';
+
+            el.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove());
+        }, { passive: true });
+    });
+
+    // 10. Touch Pulse on Service Cards (replaces mouse 3D tilt on mobile)
+    const serviceCardsMobile = document.querySelectorAll('.service-card');
+    serviceCardsMobile.forEach(card => {
+        card.addEventListener('touchstart', () => {
+            card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+            card.style.transform = 'scale(1.03)';
+            card.style.boxShadow = '0 15px 40px rgba(108, 92, 231, 0.4)';
+        }, { passive: true });
+
+        card.addEventListener('touchend', () => {
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '';
+        }, { passive: true });
+    });
 });

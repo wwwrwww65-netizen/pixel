@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بكسل - Pixel | لتطوير البرمجيات</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
     <meta name="description" content="شركة بكسل (Pixel) الرائدة في تطوير البرمجيات، مواقع الويب، تطبيقات الهواتف، وبرمجة الألعاب.">
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts Preconnect for Faster Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    /* Touch Ripple Effect */
+    .ripple-effect {
+        position: absolute;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle, rgba(108, 92, 231, 0.5), rgba(0, 206, 201, 0.2));
+        transform: scale(0);
+        animation: rippleAnim 0.6s ease-out forwards;
+        pointer-events: none;
+        z-index: 9999;
+    }
+    @keyframes rippleAnim {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+    </style>
 </head>
 <body>
     <!-- Custom Cursor -->
@@ -139,7 +162,7 @@
                 <!-- Project 1 -->
                 <div class="portfolio-card glass-card" data-scroll>
                     <div class="portfolio-img-wrapper">
-                        <img src="جي jeeey.jpg" alt="منصة جي" class="portfolio-img">
+                        <img src="جي jeeey.jpg" alt="منصة جي" class="portfolio-img" loading="lazy">
                     </div>
                     <div class="portfolio-info">
                         <h3>منصة جي - Jeeey</h3>
@@ -150,7 +173,7 @@
                 <!-- Project 2 -->
                 <div class="portfolio-card glass-card" data-scroll>
                     <div class="portfolio-img-wrapper">
-                        <img src="نظام مستر كاشير للمطاعم.jpg" alt="مستر كاشير" class="portfolio-img contain-img">
+                        <img src="نظام مستر كاشير للمطاعم.jpg" alt="مستر كاشير" class="portfolio-img contain-img" loading="lazy">
                     </div>
                     <div class="portfolio-info">
                         <h3>نظام مستر كاشير</h3>
@@ -160,7 +183,7 @@
                 <!-- Project 3 -->
                 <div class="portfolio-card glass-card" data-scroll>
                     <div class="portfolio-img-wrapper">
-                        <img src="Nora نورا.jpg" alt="نظام نورا" class="portfolio-img">
+                        <img src="Nora نورا.jpg" alt="نظام نورا" class="portfolio-img" loading="lazy">
                     </div>
                     <div class="portfolio-info">
                         <h3>المعلمة نورا (Nora 3D)</h3>
@@ -170,7 +193,7 @@
                 <!-- Project 4 -->
                 <div class="portfolio-card glass-card" data-scroll>
                     <div class="portfolio-img-wrapper">
-                        <img src="تطبيق مستر شير.jpg" alt="تطبيق مستر شير" class="portfolio-img">
+                        <img src="تطبيق مستر شير.jpg" alt="تطبيق مستر شير" class="portfolio-img" loading="lazy">
                     </div>
                     <div class="portfolio-info">
                         <h3>تطبيق مستر شير</h3>
