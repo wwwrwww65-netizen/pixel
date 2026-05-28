@@ -30,6 +30,8 @@
 html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -46,32 +48,34 @@ body {
     width: 100%;
 }
 
-/* Background Animated Blobs */
+/* Background Animated Blobs - Optimized */
 body::before, body::after {
     content: '';
     position: fixed;
     border-radius: 50%;
-    filter: blur(80px);
     z-index: -1;
     pointer-events: none;
-    opacity: 0.6;
+    opacity: 0.5;
+    /* Removed heavy filter: blur(80px) and replaced with native gradients */
+    transform: translateZ(0); /* Hardware accelerate */
+    will-change: transform;
 }
 
 body::before {
-    width: 40vw;
-    height: 40vw;
-    background: var(--primary);
-    top: -10vw;
-    left: -10vw;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+    top: -15vw;
+    left: -15vw;
     animation: blobBounce 20s infinite alternate ease-in-out;
 }
 
 body::after {
-    width: 35vw;
-    height: 35vw;
-    background: var(--secondary);
-    bottom: -10vw;
-    right: -10vw;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+    bottom: -15vw;
+    right: -15vw;
     animation: blobBounce2 25s infinite alternate ease-in-out;
 }
 
@@ -290,12 +294,15 @@ ul {
 .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     padding: 30px;
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    transform: translateZ(0); /* Hardware Acceleration for mobile scroll */
+    will-change: transform;
 }
 
 .glass-card::before {
@@ -712,7 +719,8 @@ ul {
     background-size: cover;
     background-position: center;
     filter: blur(20px) brightness(0.35) saturate(1.5);
-    transform: scale(1.15); /* prevent blur edge white artifacts */
+    transform: scale(1.15) translateZ(0); /* prevent blur edge white artifacts & accelerate */
+    will-change: transform;
     z-index: 0;
 }
 
