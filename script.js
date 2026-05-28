@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Touch Ripple Effect for Mobile
+    // 9. Touch Ripple Effect for Mobile (only on TAP, not scroll)
     const touchTargets = document.querySelectorAll('.service-card, .portfolio-card, .btn-glow, .btn-primary, .contact-option, .nav-links a');
 
     touchTargets.forEach(el => {
@@ -208,32 +208,79 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentPos === 'static') el.style.position = 'relative';
         el.style.overflow = 'hidden';
 
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let rippleEl = null;
+
         el.addEventListener('touchstart', (e) => {
             const touch = e.touches[0];
+            touchStartX = touch.clientX;
+            touchStartY = touch.clientY;
+
             const rect = el.getBoundingClientRect();
+            rippleEl = document.createElement('span');
+            rippleEl.classList.add('ripple-effect');
+            rippleEl.style.left = (touch.clientX - rect.left - 30) + 'px';
+            rippleEl.style.top  = (touch.clientY - rect.top  - 30) + 'px';
+            el.appendChild(rippleEl);
+        }, { passive: true });
 
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple-effect');
-            ripple.style.left = (touch.clientX - rect.left - 30) + 'px';
-            ripple.style.top  = (touch.clientY - rect.top  - 30) + 'px';
+        el.addEventListener('touchmove', (e) => {
+            // إذا تحرك الإصبع أكثر من 10px = تمرير وليس نقر → احذف الموجة
+            const dx = Math.abs(e.touches[0].clientX - touchStartX);
+            const dy = Math.abs(e.touches[0].clientY - touchStartY);
+            if ((dx > 10 || dy > 10) && rippleEl) {
+                rippleEl.remove();
+                rippleEl = null;
+            }
+        }, { passive: true });
 
-            el.appendChild(ripple);
-            ripple.addEventListener('animationend', () => ripple.remove());
+        el.addEventListener('touchend', () => {
+            if (rippleEl) {
+                rippleEl.addEventListener('animationend', () => rippleEl && rippleEl.remove());
+            }
         }, { passive: true });
     });
 
-    // 10. Touch Pulse on Service Cards (replaces mouse 3D tilt on mobile)
-    const serviceCardsMobile = document.querySelectorAll('.service-card');
-    serviceCardsMobile.forEach(card => {
+    // 10.5 Blurred image background for portfolio cards
+    document.querySelectorAll('.portfolio-img-wrapper').forEach(wrapper => {
+        const img = wrapper.querySelector('img');
+        if (!img) return;
+        const blurBg = document.createElement('div');
+        blurBg.classList.add('img-blur-bg');
+        blurBg.style.backgroundImage = `url('${img.src}')`;
+        wrapper.insertBefore(blurBg, img);
+    });
+
+    // 10. Touch Pulse on Cards (replaces mouse 3D tilt on mobile)
+    const allTouchCards = document.querySelectorAll('.service-card, .portfolio-card');
+    allTouchCards.forEach(card => {
+        let isTap = true;
+
         card.addEventListener('touchstart', () => {
+            isTap = true;
             card.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
             card.style.transform = 'scale(1.03)';
-            card.style.boxShadow = '0 15px 40px rgba(108, 92, 231, 0.4)';
+            // بطاقات الخدمات: توهج بنفسجي — بطاقات الأعمال: توهج سماوي
+            if (card.classList.contains('portfolio-card')) {
+                card.style.boxShadow = '0 15px 40px rgba(0, 206, 201, 0.4)';
+            } else {
+                card.style.boxShadow = '0 15px 40px rgba(108, 92, 231, 0.4)';
+            }
+        }, { passive: true });
+
+        card.addEventListener('touchmove', () => {
+            isTap = false;
+            // إذا كان تمريراً ارجع للحجم الطبيعي فوراً
+            card.style.transform = 'scale(1)';
+            card.style.boxShadow = '';
         }, { passive: true });
 
         card.addEventListener('touchend', () => {
-            card.style.transform = 'scale(1)';
-            card.style.boxShadow = '';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+                card.style.boxShadow = '';
+            }, 150);
         }, { passive: true });
     });
 });
